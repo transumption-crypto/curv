@@ -283,6 +283,10 @@ impl<E: Curve> Clone for Point<E> {
     }
 }
 
+unsafe impl<E: Curve> Send for Point<E> {}
+
+unsafe impl<E: Curve> Sync for Point<E> {}
+
 impl<E: Curve> fmt::Debug for Point<E> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         self.raw_point.fmt(f)

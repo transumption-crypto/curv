@@ -135,6 +135,10 @@ impl<E: Curve> Clone for Scalar<E> {
     }
 }
 
+unsafe impl<E: Curve> Send for Scalar<E> {}
+
+unsafe impl<E: Curve> Sync for Scalar<E> {}
+
 impl<E: Curve> fmt::Debug for Scalar<E> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         self.as_raw().fmt(f)
